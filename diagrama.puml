@@ -1,0 +1,52 @@
+@startuml
+
+
+class Cell{
+    -int neighbors
+-bool isAlive
++Cell()
++getNeighbors()
++setNeighbors(int n)
++getIsAlive()
++setIsAlive(bool status)
+}
+class Node{
+    -Cell cell
+    -int rows
+    -int cols
+    -Node* nextUp
+    -Node* nextRight
+    +Cell()
+    +getRow()
+    +getCol()
+    +getNextUp()
+    +getNextRight()
+    +setNextUp(Node* n)
+    +setNextRight(Node* n)
+    -Node()
+
+}
+class MPP{
+   
+    -int rows
+    -int cols
+    -Arow[rows]    
+    -Acol[cols]
+    +MPP(int rows, int cols)
+}
+
+class Board{
+    -int id
+    +MPP::MPP(int rows, int cols)
+    
+}
+
+
+Cell "1" -d-> "1" Node : "contains"
+Node "x" -d-o "1" MPP
+MPP "1" -d-> "1" Board
+Note left of Cell: if cell has 2>neighbors>3 then is alive\nif cell is dead and has 3 neighbors then will be alive again\nif cell has < 2 or > 3 neighbors then will die
+
+Note right of MPP: columns and rows amount allowed are more than 4 and less than 10
+
+

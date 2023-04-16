@@ -1,0 +1,3 @@
+/home/nagorik/CLionProjects/[Clion] Taller1_RiquelmeFrancisco-ValenzuelaFernando/cmake-build-debug/CMakeFiles/_Clion__Taller1_RiquelmeFrancisco_ValenzuelaFernando.dir
+/home/nagorik/CLionProjects/[Clion] Taller1_RiquelmeFrancisco-ValenzuelaFernando/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/nagorik/CLionProjects/[Clion] Taller1_RiquelmeFrancisco-ValenzuelaFernando/cmake-build-debug/CMakeFiles/rebuild_cache.dir
