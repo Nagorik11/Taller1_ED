@@ -77,6 +77,7 @@ cout<<"Has elegido, Partida Rápida"<<endl;
     char entrada;
     cout << "Ingresar opción:"<< endl;
     cin >> entrada;
+    entrada = _toupper(entrada);
     while(entrada == 'A' || entrada == 'B' || entrada == 'C' || entrada == 'D'){
         if(entrada =='A'){
             cout<<"selecciono 4x4"<<endl;

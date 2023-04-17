@@ -37,12 +37,16 @@ using namespace std;
         return 0;
     }
 
-    void MPP::print() const {
-        for (int row = 0; row < rows; row++) {
-            for (int col = 0; col < cols; col++) {
-                std::cout << getValue(row, col) << "\t";
+void MPP::print() const {
+    for (int row = 0; row < rows; row++) {
+        for (int col = 0; col < cols; col++) {
+            if (getValue(row, col) == 0) {
+                std::cout << "\u25A1 "; // cuadrado blanco
+            } else {
+                std::cout << "\u25A0 "; // cuadrado negro
             }
-            std::cout << std::endl;
         }
+        std::cout << std::endl;
     }
+}
 
