@@ -26,6 +26,9 @@ void submenu2();
 void submenu3();
 void submenu4();
 void submenu5();
+
+int rand(int i);
+
 int main() {
 
     void (*opciones[])() = {opcion1, opcion2, opcion3, opcion4,opcion5};
@@ -142,8 +145,8 @@ void submenu2(){
         cout << "El ancho se ha establecido en " << ancho << "." << endl;
 
         cout << "Ha elegido un tablero de " << largo << "x" << ancho << endl;
-        MPP mpp(largo, ancho);
-        mpp.print();
+        auto* board = new Board(largo, ancho);
+        board->print();
     } catch (const invalid_argument& e) {
         cout << "Error: " << e.what() << endl;
     } catch (...) {
@@ -157,13 +160,26 @@ void opcion3() {
 void submenu3(){
     cout << "_______________________________________________" << endl;
     cout << "Partida Pre-fabricada." << endl;
+    //generar tablero aleatorio
+    int filasRandom = rand()%10+4;
+    int columnasRandom = rand()%10+4;
+    cout <<" Se ha generado un tablero de "<<filasRandom<<"x"<<columnasRandom<<endl;
+    new Board(filasRandom, columnasRandom);
+    Board* board_r = new Board(filasRandom, columnasRandom);
+    board_r->print();
+    cout << "_______________________________________________" << endl;
+
 }
+
 
 
 void opcion4() {
     submenu4();
 }
 void submenu4(){
+
+    //leer el archivo de texto
+
     cout << "_______________________________________________" << endl;
     cout <<"*\t\tPuntuaciones\t\t*"<<endl;
     cout<<"Mayor Duración:"<<endl;

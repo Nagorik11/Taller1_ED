@@ -8,10 +8,24 @@
 
 class Cell {
 private:
+    int row;
+    int col;
+public:
+    int getRow() const;
+
+    void setRow(int row);
+
+    int getCol() const;
+
+    void setCol(int col);
+
+    bool isAlive2() const;
+
+private:
     int neighborCount;
     bool isAlive = false;
 public:
-    Cell(int neighborCount, bool isAlive);
+    Cell(int row, int col,int neighborCount, bool isAlive);
 
     int getNeighborCount() const;
 

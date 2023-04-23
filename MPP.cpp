@@ -1,4 +1,5 @@
 #include "MPP.h"
+#include "Cell.h"
 
 using namespace std;
 
@@ -97,6 +98,34 @@ void MPP::print() const {
         MPP::values = values;
     }
 
+   //agregar una celula
+   void MPP::add(Cell cell) {
+       MPP(cell.getCol(),cell.getRow()).setValue(cell.getCol(),cell.getRow(),1);
+    }
+void MPP::remove(Cell cell) {
+    MPP(cell.getCol(),cell.getRow()).setValue(cell.getCol(),cell.getRow(),0);
+}
 
+bool MPP::exists(Cell cell) {
+    if (MPP(cell.getCol(),cell.getRow()).getValue(cell.getCol(),cell.getRow())==1){
+        return true;
+    }else{
+        return false;
+    }
+}
 
+int MPP::count_neighbors(MPP& matrix, Cell cell) {
 
+    int count = 0;
+    for (int row = cell.getRow() - 1; row <= cell.getRow() + 1; row++) {
+        for (int col = cell.getCol() - 1; col <= cell.getCol() + 1; col++) {
+            if (row == cell.getRow() && col == cell.getCol()) {
+                continue;
+            }
+            if (matrix.exists(cell)) {
+                count++;
+            }
+        }
+    }
+    return count;
+}

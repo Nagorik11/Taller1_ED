@@ -28,6 +28,7 @@ MPP * Board::print() {
 
         bitset<8> id= bitset<8>(this->id);
         cout << "Id: " << id << endl;
+        this->id++;
         this->mpp->print();
         Board::store_record(*this,id.to_string());
         return this->mpp;

@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <vector>
+#include "Cell.h"
 
 using namespace std;
 
@@ -51,6 +52,15 @@ using namespace std;
 
         void setValues(const vector<int> &values);
 
+        void add(Cell cell);
+
+        void remove(Cell cell);
+
+
+        bool exists(Cell cell);
+
+
+        int count_neighbors(MPP&, Cell cell);
     };
 
 #endif // MPP_H
