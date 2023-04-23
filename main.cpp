@@ -27,12 +27,12 @@ void submenu3();
 void submenu4();
 void submenu5();
 
-int rand(int i);
+int entries =  Board::count_entries();
 
 int main() {
+    // Arreglo de funciones
 
     void (*opciones[])() = {opcion1, opcion2, opcion3, opcion4,opcion5};
-
     int opcion;
     do {
         // Mostrar el menú
@@ -81,6 +81,7 @@ void submenu1(){
         if(entrada =='A'){
             cout<<"selecciono 4x4"<<endl;
             Board* board4 = new Board(4, 4);
+            //board4->setId(entries++);
             board4->print();
             return;
         }
@@ -88,6 +89,7 @@ void submenu1(){
             cout<<"selecciono 5x5"<<endl;
             //hacer funcion de mpp 5x5
             Board* board5 = new Board(5, 5);
+          //  board5->setId(entries+1);
             board5->print();
             return;
         }
@@ -95,6 +97,8 @@ void submenu1(){
             cout<<"selecciono 6x6"<<endl;
             //hacer funcion de mpp 6x6
             Board* board6 = new Board(6, 6);
+         //   board6->setId(entries+1);
+            board6->setId(entries+1);
             board6->print();
 
 

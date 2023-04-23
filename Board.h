@@ -1,10 +1,11 @@
 #ifndef BOARD_H
 #define BOARD_H
 
+#include <bitset>
 #include "MPP.h"
 class Board {
 private:
-    int id;
+    bitset<8> id = 0;
     MPP *mpp;
     int nextId;
 public:
@@ -24,13 +25,15 @@ public:
 
     ~Board();
 
-    int getId() const ;
+    const bitset<8> getId() const ;
 
     static MPP *getMPP() ;
 
     MPP * print();
 
     void store_record(Board board,string id) const;
+
+    static int count_entries();
 
     //getrows
 

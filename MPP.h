@@ -27,7 +27,6 @@ using namespace std;
 
         void print() const;
 
-
         int getId() const;
 
         void setId(int id);

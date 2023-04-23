@@ -22,6 +22,7 @@ int Cell::getNeighborCount() const {
 
 void Cell::setNeighborCount(int neighborCount) {
     Cell::neighborCount = neighborCount;
+
 }
 
 bool Cell::isAlive1() const {

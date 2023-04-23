@@ -10,6 +10,8 @@ class Cell {
 private:
     int row;
     int col;
+    int neighborCount;
+    bool isAlive = false;
 public:
     int getRow() const;
 
@@ -21,10 +23,6 @@ public:
 
     bool isAlive2() const;
 
-private:
-    int neighborCount;
-    bool isAlive = false;
-public:
     Cell(int row, int col,int neighborCount, bool isAlive);
 
     int getNeighborCount() const;
