@@ -1,19 +1,20 @@
 //
 // Created by nagorik on 13-04-23.
 //
-
 #include "Cell.h"
 
-
 Cell::Cell() {
+    row = 0;
+    col = 0;
+    isAlive = false;
+    neighborCount = 0;
 }
-bool Cell::getIsAlive() {
-    return false;
+bool Cell::getIsAlive() const {
+    return isAlive;
 }
 
-bool Cell::setIsAlive(bool status) {
-    this -> isAlive = status;
-    return status;
+bool Cell::setIsAlive(bool isAlive) {
+    this->isAlive = isAlive;
 }
 
 int Cell::getNeighborCount() const {
@@ -21,20 +22,7 @@ int Cell::getNeighborCount() const {
 }
 
 void Cell::setNeighborCount(int neighborCount) {
-    Cell::neighborCount = neighborCount;
-
-}
-
-bool Cell::isAlive1() const {
-    return isAlive;
-}
-
-Cell::Cell(int row, int col, int neighborCount, bool isAlive) {
-    this->row = row;
-    this->col = col;
     this->neighborCount = neighborCount;
-    this->isAlive = isAlive;
-
 }
 
 int Cell::getRow() const {
@@ -42,7 +30,7 @@ int Cell::getRow() const {
 }
 
 void Cell::setRow(int row) {
-    Cell::row = row;
+    this->row = row;
 }
 
 int Cell::getCol() const {
@@ -50,11 +38,17 @@ int Cell::getCol() const {
 }
 
 void Cell::setCol(int col) {
-    Cell::col = col;
+    this->col = col;
 }
 
-bool Cell::isAlive2() const {
-    return isAlive;
+void Cell::incrementNeighborCount() {
+    neighborCount++;
 }
 
+void Cell::decrementNeighborCount() {
+    neighborCount--;
+}
 
+void Cell::resetNeighborCount() {
+    neighborCount = 0;
+}

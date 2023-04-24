@@ -32,6 +32,12 @@ private:
     int col;
     bool isAlive;
     int neighborCount;
+
+    void incrementNeighborCount();
+
+    void decrementNeighborCount();
+
+    void resetNeighborCount();
 };
 
 
