@@ -13,15 +13,55 @@ private:
     Node *nextUp;
 
 public:
+    /**
+     * Constructor por parámetros
+     * @param cell
+     * @param nextRight
+     * @param nextUp
+     */
     Node(Cell cell, Node *nextRight, Node *nextUp);
+    /**
+     * Constructor por defecto
+     */
     Node();
+    /**
+     * Constructor por celula
+     * @param cell
+     */
     Node(Cell cell);
+    /**
+     * getter de nextRight
+     * @return
+     */
     Node *getNextRight() const;
+    /**
+     * setter de nextRight
+     * @param nextRight
+     */
     void setNextRight(Node *nextRight);
+    /**
+     * getter de nextUp
+     * @return
+     */
     Node *getNextUp() const;
+    /**
+     * setter de nextUp
+     * @param nextUp
+     */
     void setNextUp(Node *nextUp);
+    /**
+     * getter de cell
+     * @return
+     */
     Cell getCell() const;
+    /**
+     * setter de cell
+     * @param cell
+     */
     void setCell(Cell cell);
+    /**
+     * Destructor
+     */
     virtual ~Node();
 };
 

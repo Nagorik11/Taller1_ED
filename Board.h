@@ -3,39 +3,73 @@
 
 #include <bitset>
 #include "MPP.h"
+
 class Board {
 private:
     bitset<8> id = 0;
     MPP *mpp;
     int nextId;
 public:
+    /**
+     * Constructor
+     * @param id
+     * @param mpp
+     * @param nextId
+     */
     Board(int id, MPP *mpp, int nextId);
-
+    /**
+     * Constructor
+     * @param rows
+     * @param cols
+     */
     Board(int rows, int cols);
-
+    /**
+     * Setter de id
+     * @param id
+     */
     void setId(int id);
-
+    /**
+     * Getter de mpp
+     * @return
+     */
     MPP *getMpp() const;
-
+    /**
+     * Setter de mpp
+     * @param mpp
+     */
     void setMpp(MPP *mpp);
-
+    //TODO: revisar si es necesario
     int getNextId() const;
 
     void setNextId(int nextId);
-
+    /**
+     * Destructor
+     */
     ~Board();
-
+    /**
+     * Getter de id (binario)
+     * @return
+     */
     const bitset<8> getId() const ;
 
-    static MPP *getMPP() ;
-
+    /**
+     * Imprime la matriz
+     * @return
+     */
     MPP * print();
 
+    /**
+     * Guarda el registro de la partida en un archivo
+     * @param board
+     * @param id
+     */
     void store_record(Board board,string id) const;
-
+    /**
+     * Cuenta la cantidad de entradas en el archivo
+     * @return
+     */
     static int count_entries();
 
-    //getrows
 
 };
 

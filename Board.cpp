@@ -20,10 +20,6 @@ const bitset<8> Board::getId() const {
     return this->id;
 }
 
-MPP *Board::getMPP() {
-    return nullptr;
-}
-
 MPP * Board::print() {
 
         bitset<8> id= bitset<8>(this->id=Board::count_entries());

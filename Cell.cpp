@@ -52,3 +52,7 @@ void Cell::decrementNeighborCount() {
 void Cell::resetNeighborCount() {
     neighborCount = 0;
 }
+
+Cell::~Cell() {
+
+}

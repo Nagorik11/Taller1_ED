@@ -89,7 +89,6 @@ void submenu1(){
             cout<<"selecciono 5x5"<<endl;
             //hacer funcion de mpp 5x5
             Board* board5 = new Board(5, 5);
-          //  board5->setId(entries+1);
             board5->print();
             return;
         }
@@ -106,7 +105,7 @@ void submenu1(){
         }
         if(entrada =='D'){
             cout<<"selecciono 10x10"<<endl;
-            //hacer funcion de mpp 10x10
+
             Board* board10 = new Board(10, 10);
             board10->print();
             return;
