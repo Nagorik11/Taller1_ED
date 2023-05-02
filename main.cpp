@@ -31,7 +31,10 @@ int entries =  Board::count_entries();
 
 int main() {
     // Arreglo de funciones
-
+    cout << "Autor: Fernando Valenzuela" << endl;
+    cout << "RUT: 17725456-8" << endl;
+    cout << "Taller 1: Juego de la vida de Conway" << endl;
+    cout << "_______________________________________________" << endl;
     void (*opciones[])() = {opcion1, opcion2, opcion3, opcion4,opcion5};
     int opcion;
     do {
