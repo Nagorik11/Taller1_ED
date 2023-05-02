@@ -31,6 +31,11 @@ MPP * Board::print() {
         return this->mpp;
 }
 
+MPP * Board::update(int row, int col, int value) {
+
+    return Board::print();
+
+}
 
 void Board::setId(int id) {
     Board::id = bitset<8>(id);
@@ -74,6 +79,32 @@ int Board::count_entries() {
     }
     return count;
 }
+
+void Board::search_biggest_board() {
+    string line;
+    ifstream infile("output.txt");
+    int max_row=0;
+    int max_col=0;
+    while(getline(infile,line)){
+        //leer campos
+        string id;
+        string rows;
+        string cols;
+        int pos=0;
+        int pos2=0;
+        int pos3=0;
+        for(int i=0;i<line.length();i++){
+            if(line[i]==','){
+                pos=i;
+                break;
+            }
+        }
+
+    }
+
+}
+
+
 
 
 

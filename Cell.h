@@ -1,6 +1,10 @@
-//
-// Created by nagorik on 13-04-23.
-//
+/**
+ * @file Cell.h
+ * @brief Archivo de cabecera de la clase Cell
+ * @author Valenzuela, Fernando
+ * @date 2023-04-23
+ *
+ */
 
 #ifndef _CLION__TALLER1_RIQUELMEFRANCISCO_VALENZUELAFERNANDO_CELL_H
 #define _CLION__TALLER1_RIQUELMEFRANCISCO_VALENZUELAFERNANDO_CELL_H
@@ -85,6 +89,8 @@ public:
      * Destructor
      */
     virtual ~Cell();
+
+    void setValue(int i);
 
 private:
     int row;

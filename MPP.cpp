@@ -26,6 +26,8 @@ using namespace std;
         values.push_back(value);
     }
 
+
+
     int MPP::getValue(int row, int col) const {
         // search for existing value
         for (int i = 0; i < values.size(); i++) {
@@ -35,7 +37,6 @@ using namespace std;
         }
 
         // return default value of 0 if not found
-
         return 0;
     }
 
@@ -100,9 +101,7 @@ void MPP::print() const {
     }
 
    //agregar una celula
-   void MPP::add(Cell cell) {
-       MPP(cell.getCol(),cell.getRow()).setValue(cell.getCol(),cell.getRow(),1);
-    }
+
 void MPP::remove(Cell cell) {
     MPP(cell.getCol(),cell.getRow()).setValue(cell.getCol(),cell.getRow(),0);
 }
@@ -129,4 +128,10 @@ int MPP::count_neighbors(MPP& matrix, Cell cell) {
         }
     }
     return count;
+}
+
+void MPP::setCell(int i, int i1, bool b) {
+    MPP(i,i1).setValue(i,i1,b);
+
+
 }

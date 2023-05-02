@@ -1,3 +1,6 @@
+/**
+ * Project Untitled
+ */
 #ifndef BOARD_H
 #define BOARD_H
 
@@ -58,6 +61,7 @@ public:
      */
     MPP * print();
 
+
     /**
      * Guarda el registro de la partida en un archivo
      * @param board
@@ -69,8 +73,12 @@ public:
      * @return
      */
     static int count_entries();
+    /**
+     * Busca la matriz mas grande en el archivo
+     */
+    static void search_biggest_board();
 
-
+    MPP *update(int row, int col, int value);
 };
 
 #endif // BOARD_H

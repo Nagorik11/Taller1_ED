@@ -80,7 +80,8 @@ void submenu1(){
     while(entrada == 'A' || entrada == 'B' || entrada == 'C' || entrada == 'D'){
         if(entrada =='A'){
             cout<<"selecciono 4x4"<<endl;
-            Board* board4 = new Board(4, 4);
+            auto* board4 = new Board(4, 4);
+
             //board4->setId(entries++);
             board4->print();
             return;
@@ -88,15 +89,13 @@ void submenu1(){
         if(entrada =='B'){
             cout<<"selecciono 5x5"<<endl;
             //hacer funcion de mpp 5x5
-            Board* board5 = new Board(5, 5);
+            auto* board5 = new Board(5, 5);
             board5->print();
             return;
         }
         if(entrada =='C'){
             cout<<"selecciono 6x6"<<endl;
-            //hacer funcion de mpp 6x6
-            Board* board6 = new Board(6, 6);
-         //   board6->setId(entries+1);
+            auto* board6 = new Board(6, 6);
             board6->setId(entries+1);
             board6->print();
 
@@ -105,8 +104,7 @@ void submenu1(){
         }
         if(entrada =='D'){
             cout<<"selecciono 10x10"<<endl;
-
-            Board* board10 = new Board(10, 10);
+            auto* board10 = new Board(10, 10);
             board10->print();
             return;
         }
@@ -164,12 +162,13 @@ void submenu3(){
     cout << "_______________________________________________" << endl;
     cout << "Partida Pre-fabricada." << endl;
     //generar tablero aleatorio
-    int filasRandom = rand()%10+4;
-    int columnasRandom = rand()%10+4;
+    int filasRandom = rand()%10+3;
+    int columnasRandom = rand()%10+3;
     cout <<" Se ha generado un tablero de "<<filasRandom<<"x"<<columnasRandom<<endl;
     new Board(filasRandom, columnasRandom);
     Board* board_r = new Board(filasRandom, columnasRandom);
     board_r->print();
+    //board_r->update(1,1,1);
     cout << "_______________________________________________" << endl;
 
 }
@@ -187,6 +186,7 @@ void submenu4(){
     cout <<"*\t\tPuntuaciones\t\t*"<<endl;
     cout<<"Mayor Duración:"<<endl;
     cout<<"Tablero más grande"<<endl;
+    Board::search_biggest_board();
     cout<<"Mayor Cantidad de células vivas"<<endl;
     cout<<"Mayor cantidad de células iniciales vivas"<<endl;
     cout<<"Extincion más rápida"<<endl;

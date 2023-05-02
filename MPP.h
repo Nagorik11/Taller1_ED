@@ -10,6 +10,7 @@
 #include <iostream>
 #include <vector>
 #include "Cell.h"
+#include "LinkedList.h"
 
 using namespace std;
 
@@ -18,10 +19,11 @@ using namespace std;
         int id;
         int rows;
         int cols;
+
+        Cell cell;
         vector<int> Arow;
         vector<int> Acol;
         vector<int> values;
-
 
     public:
         /**
@@ -102,11 +104,12 @@ using namespace std;
          * setter de arreglo de valores
          */
         void setValues(const vector<int> &values);
+
         /**
          * Metodo para agregar una celula a la MPP
          * @param cell
          */
-        void add(Cell cell);
+
         /**
          * Metodo para remover una celula de la MPP
          * @param cell
@@ -125,7 +128,13 @@ using namespace std;
          * @param cell
          * @return
          */
-        int count_neighbors(MPP&, Cell cell);
+        static int count_neighbors(MPP&, Cell cell);
+
+        void addNode(int row, int col, int value);
+
+        int search(int row, int col) const;
+
+        void setCell(int i, int i1, bool b);
     };
 
 #endif // MPP_H

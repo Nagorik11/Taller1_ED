@@ -56,3 +56,12 @@ void Cell::resetNeighborCount() {
 Cell::~Cell() {
 
 }
+
+void Cell::setValue(int i) {
+    if (i == 0) {
+        isAlive = false;
+    } else {
+        isAlive = true;
+    }
+
+}
