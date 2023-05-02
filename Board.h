@@ -78,7 +78,18 @@ public:
      */
     static void search_biggest_board();
 
+    /**
+     * Actualiza la matriz
+     * @param row
+     * @param col
+     * @param value
+     * @return
+     */
     MPP *update(int row, int col, int value);
+
+
+    MPP *generate_cell_distribution_(int num_cells, MPP *mpp);
 };
+
 
 #endif // BOARD_H

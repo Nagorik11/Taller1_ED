@@ -99,8 +99,11 @@ void submenu1(){
         if(entrada =='C'){
             cout<<"selecciono 6x6"<<endl;
             auto* board6 = new Board(6, 6);
+            board6->generate_cell_distribution_(2,board6->getMpp());
+            //board6->getMpp()->setValue(2,2,1);
             board6->setId(entries+1);
             board6->print();
+            cout<<board6->getId()<<endl;
 
 
             return;

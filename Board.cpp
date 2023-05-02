@@ -31,6 +31,8 @@ MPP * Board::print() {
         return this->mpp;
 }
 
+
+
 MPP * Board::update(int row, int col, int value) {
 
     return Board::print();
@@ -63,7 +65,7 @@ void Board::store_record(Board board,string id) const {
     std::ofstream outfile("output.txt", std::ios::app); // Abrir el archivo en modo de escritura, agregando al final
 
 
-    outfile << "Id: " << id << ","<< "Filas: " << board.getMpp()->getRows() << "," << "Columnas: " << board.getMpp()->getCols() << std::endl;
+    outfile << "Id: " << id << ","<< "Filas: " << board.getMpp()->getRows() << "," << "Columnas: " << board.getMpp()->getCols() <<"Steps: " <<std::endl;
     // Aquí podrías agregar más información del objeto, dependiendo de tus necesidades
 
     outfile.close(); // Cerrar el archivo
@@ -103,6 +105,20 @@ void Board::search_biggest_board() {
     }
 
 }
+
+MPP *Board::generate_cell_distribution_(int num_cells, MPP *mpp){
+    int rows = mpp->getRows();
+    int cols = mpp->getCols();
+    int value = 1;
+    for (int i = 0; i < num_cells; i++) {
+        int row = rand() % rows;
+        int col = rand() % cols;
+        mpp->setValue(row, col, value);
+    }
+    return mpp;
+}
+
+
 
 
 

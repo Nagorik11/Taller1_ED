@@ -16,7 +16,7 @@ using namespace std;
 
     class MPP {
     private:
-        int id;
+        int id{};
         int rows;
         int cols;
 
