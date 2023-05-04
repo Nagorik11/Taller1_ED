@@ -102,7 +102,11 @@ void submenu1(){
             board6->generate_cell_distribution_(2,board6->getMpp());
             //board6->getMpp()->setValue(2,2,1);
             board6->setId(entries+1);
+//            board6->print();
+            board6->setStep(0);
             board6->print();
+            board6->setStep(1);
+            cout<<board6->getStep()<<endl;
             cout<<board6->getId()<<endl;
 
 
@@ -153,7 +157,20 @@ void submenu2(){
 
         cout << "Ha elegido un tablero de " << largo << "x" << ancho << endl;
         auto* board = new Board(largo, ancho);
-        board->print();
+        cout<<"Ingresar coordenadas de la celula agregada"<<endl;
+        //coordenadas de la nueva celula
+       try{
+           int newx, newy;
+           cout<<"x: ";cin>>newx;
+           cout<<"y: ";cin>>newy;
+           if(newx>largo || newy>ancho){
+               throw invalid_argument("Coordenadas fuera del tablero");
+           }
+           board->getMpp()->setValue(newx-1,newy-1,1);
+           board->print();
+         }catch (const invalid_argument& e) {
+           cout << "Error: " << e.what() << endl;}
+
     } catch (const invalid_argument& e) {
         cout << "Error: " << e.what() << endl;
     } catch (...) {
@@ -173,6 +190,7 @@ void submenu3(){
     cout <<" Se ha generado un tablero de "<<filasRandom<<"x"<<columnasRandom<<endl;
     new Board(filasRandom, columnasRandom);
     Board* board_r = new Board(filasRandom, columnasRandom);
+    board_r->generate_cell_distribution_(5,board_r->getMpp());
     board_r->print();
     //board_r->update(1,1,1);
     cout << "_______________________________________________" << endl;

@@ -11,15 +11,18 @@ class Board {
 private:
     bitset<8> id = 0;
     MPP *mpp;
-    int nextId;
+    int steps;
+
 public:
     /**
      * Constructor
      * @param id
      * @param mpp
-     * @param nextId
+     * @param steps
      */
-    Board(int id, MPP *mpp, int nextId);
+    Board(int id, MPP *mpp, int steps);
+
+
     /**
      * Constructor
      * @param rows
@@ -42,9 +45,9 @@ public:
      */
     void setMpp(MPP *mpp);
     //TODO: revisar si es necesario
-    int getNextId() const;
+    int getStep() const;
 
-    void setNextId(int nextId);
+    void setStep(int step);
     /**
      * Destructor
      */
@@ -87,9 +90,20 @@ public:
      */
     MPP *update(int row, int col, int value);
 
-
+    /**
+     * Genera una distribucion de celulas aleatoria
+     * @param num_cells
+     * @param mpp
+     * @return
+     */
     MPP *generate_cell_distribution_(int num_cells, MPP *mpp);
 };
+    /**
+     * Genera un paso más en la simulacion
+     * @param mpp
+     * @return
+     */
+    MPP *step_update(MPP *mpp);
 
 
 #endif // BOARD_H

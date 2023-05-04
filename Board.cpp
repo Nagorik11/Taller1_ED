@@ -5,9 +5,10 @@
 
 
 Board::Board(int rows, int cols) {
-        id = this->nextId;
+        id = this->steps;
         mpp = new MPP(rows, cols);
-        //nextId=this->id;
+        steps = this->steps;
+        //steps=this->id;
     }
 
 
@@ -51,15 +52,9 @@ void Board::setMpp(MPP *mpp) {
     Board::mpp = mpp;
 }
 
-int Board::getNextId() const {
-    return nextId;
-}
 
-void Board::setNextId(int nextId) {
-    Board::nextId = nextId;
-}
 
-Board::Board(int id, MPP *mpp, int nextId) : id(id), mpp(mpp), nextId(nextId) {}
+Board::Board(int id, MPP *mpp, int nextId) : id(id), mpp(mpp), steps(nextId) {}
 
 void Board::store_record(Board board,string id) const {
     std::ofstream outfile("output.txt", std::ios::app); // Abrir el archivo en modo de escritura, agregando al final
@@ -118,10 +113,20 @@ MPP *Board::generate_cell_distribution_(int num_cells, MPP *mpp){
     return mpp;
 }
 
+int Board::getStep() const {
+    return steps;
+}
+
+void Board::setStep(int step) {
+    this->steps = step;
+}
 
 
+MPP *step_update(MPP *mpp) {
+    int rows = mpp->getRows();
+    int cols = mpp->getCols();
 
+    mpp->print();
 
-
-
-
+    return mpp;
+}
