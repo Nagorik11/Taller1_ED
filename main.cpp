@@ -157,9 +157,12 @@ void submenu2(){
 
         cout << "Ha elegido un tablero de " << largo << "x" << ancho << endl;
         auto* board = new Board(largo, ancho);
-        cout<<"Ingresar coordenadas de la celula agregada"<<endl;
+        cout<<"Ingresar nueva celula? (s/n)"<<endl;
+
         //coordenadas de la nueva celula
        try{
+
+           cout<<"Ingresar coordenadas de la celula agregada"<<endl;
            int newx, newy;
            cout<<"x: ";cin>>newx;
            cout<<"y: ";cin>>newy;
