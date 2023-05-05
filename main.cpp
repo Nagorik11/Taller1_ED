@@ -84,7 +84,7 @@ void submenu1(){
         if(entrada =='A'){
             cout<<"selecciono 4x4"<<endl;
             auto* board4 = new Board(4, 4);
-            board4->generate_cell_distribution_(4*4/2,board4->getMpp());
+            board4->generate_cell_distribution_((4*4)/2,board4->getMpp());
             board4->print();
             return;
         }
@@ -92,21 +92,21 @@ void submenu1(){
             cout<<"selecciono 5x5"<<endl;
             //hacer funcion de mpp 5x5
             auto* board5 = new Board(5, 5);
-            board5->generate_cell_distribution_(5*5/2,board5->getMpp());
+            board5->generate_cell_distribution_((5*5)/2,board5->getMpp());
             board5->print();
             return;
         }
         if(entrada =='C'){
             cout<<"selecciono 6x6"<<endl;
             auto* board6 = new Board(6, 6);
-            board6->generate_cell_distribution_(6*6/2,board6->getMpp());
+            board6->generate_cell_distribution_((6*6)/2,board6->getMpp());
             board6->print();
             return;
         }
         if(entrada =='D'){
             cout<<"selecciono 10x10"<<endl;
             auto* board10 = new Board(10, 10);
-            board10->generate_cell_distribution_(10*10/2,board10->getMpp());
+            board10->generate_cell_distribution_((10*10)/2,board10->getMpp());
             board10->print();
             return;
         }
