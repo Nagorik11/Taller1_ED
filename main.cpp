@@ -157,23 +157,60 @@ void submenu2(){
 
         cout << "Ha elegido un tablero de " << largo << "x" << ancho << endl;
         auto* board = new Board(largo, ancho);
+        board->getMpp()->print();
+        //board->print();
         cout<<"Ingresar nueva celula? (s/n)"<<endl;
+        string newcell;
+        cin>>newcell;
+        while(newcell != "N" && newcell != "n"){    //mientras que la entrada sea distinta de n o N
 
-        //coordenadas de la nueva celula
-       try{
+                try {
 
-           cout<<"Ingresar coordenadas de la celula agregada"<<endl;
-           int newx, newy;
-           cout<<"x: ";cin>>newx;
-           cout<<"y: ";cin>>newy;
-           if(newx>largo || newy>ancho){
-               throw invalid_argument("Coordenadas fuera del tablero");
-           }
-           board->getMpp()->setValue(newx-1,newy-1,1);
-           board->print();
-         }catch (const invalid_argument& e) {
-           cout << "Error: " << e.what() << endl;}
+                    cout << "Ingresar coordenadas de la celula agregada" << endl;
 
+                    int newx, newy;
+                    cout << "x: ";
+                    cin >> newx;
+                    cout << "y: ";
+                    cin >> newy;
+                    if (newx > largo || newy > ancho) {
+                        throw invalid_argument("Coordenadas fuera del tablero");
+                    }
+                    board->getMpp()->setValue(newx - 1, newy - 1, 1);
+                    //board->print();
+                } catch (const invalid_argument &e) {
+                    cout << "Error: " << e.what() << endl;
+                }
+                board->getMpp()->print();
+
+            cout<<"Ingresar nueva celula? (s/n)"<<endl;
+            cin>>newcell;
+            if(newcell == "n" || newcell == "N"){
+                board->getMpp()->print();
+                return;
+            }
+        }/*
+        if(newcell == "s") {
+
+            try {
+
+                cout << "Ingresar coordenadas de la celula agregada" << endl;
+
+                int newx, newy;
+                cout << "x: ";
+                cin >> newx;
+                cout << "y: ";
+                cin >> newy;
+                if (newx > largo || newy > ancho) {
+                    throw invalid_argument("Coordenadas fuera del tablero");
+                }
+                board->getMpp()->setValue(newx - 1, newy - 1, 1);
+                //board->print();
+            } catch (const invalid_argument &e) {
+                cout << "Error: " << e.what() << endl;
+            }
+            board->print();
+        }*/
     } catch (const invalid_argument& e) {
         cout << "Error: " << e.what() << endl;
     } catch (...) {
