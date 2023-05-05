@@ -135,3 +135,21 @@ void MPP::setCell(int i, int i1, bool b) {
 
 
 }
+
+int MPP::getLiveCells() {
+    int count = 0;
+    for (int i = 0; i < values.size(); i++) {
+        if (values[i] == 1) {
+            count++;
+        }
+    }
+    return count;
+}
+
+int MPP::getDeathCells() {
+
+        int totalcelulas = this->getRows() * this->getCols();
+        int celulasMuertas = totalcelulas - getLiveCells();
+
+        return celulasMuertas;
+    }

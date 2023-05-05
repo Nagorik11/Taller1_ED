@@ -135,6 +135,12 @@ using namespace std;
         int search(int row, int col) const;
 
         void setCell(int i, int i1, bool b);
+
+        int getLiveCells();
+
+        int getDeathCells();
+
+        int getDeathCells(int live_cells, int total_cells);
     };
 
 #endif // MPP_H

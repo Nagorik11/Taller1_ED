@@ -59,7 +59,7 @@ void Board::store_record(Board board,string id) const {
     std::ofstream outfile("output.txt", std::ios::app); // Abrir el archivo en modo de escritura, agregando al final
 
 
-    outfile << "Id: " << id << ","<< "Filas: " << board.getMpp()->getRows() << "," << "Columnas: " << board.getMpp()->getCols() <<"Steps: " <<std::endl;
+    outfile << "Id: " << id << ",Filas: " << board.getMpp()->getRows() << ",Columnas: " << board.getMpp()->getCols() <<",Live_cells: "<<board.getMpp()->getLiveCells()<<", Death_cells: "<<board.getMpp()->getDeathCells()<<", Steps: "<<board.getStep()<< std::endl;
     // Aquí podrías agregar más información del objeto, dependiendo de tus necesidades
 
     outfile.close(); // Cerrar el archivo
