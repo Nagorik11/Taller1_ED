@@ -31,6 +31,7 @@ int entries =  Board::count_entries();
 
 int main() {
     // Arreglo de funciones
+    cout << "_______________________________________________" << endl;
     cout << "Autor: Fernando Valenzuela" << endl;
     cout << "RUT: 17725456-8" << endl;
     cout << "Taller 1: Juego de la vida de Conway" << endl;
@@ -49,14 +50,12 @@ int main() {
         cout << "_______________________________________________" << endl;
         opcion = leerOpcion();
 
-        // Verificar que la opción sea válida si es mayor 1 tampien puede ser menor que 51
         if (opcion < 1 || opcion > 5) {
             cout << "Opción inválida. Intente de nuevo." << endl;
         } else {
-            // Llamar a la función correspondiente
             opciones[opcion - 1]();
         }
-    } while (opcion != 5);  // si la opcion es cualquiera de las otras (1,2,3)
+    } while (opcion != 5);
 
     return 0;
 }
@@ -85,29 +84,63 @@ void submenu1(){
             cout<<"selecciono 4x4"<<endl;
             auto* board4 = new Board(4, 4);
             board4->generate_cell_distribution_((4*4)/2,board4->getMpp());
-            board4->print();
+            board4->getMpp()->print();
+            while(entrada != 'n') {
+                cout << "Next Generation (y/n)" << endl;
+                cin >> entrada;
+                if (entrada == 'y') {
+                    board4->getMpp()->print();
+                }
+            }
+            board4->getMpp()->print();
+            return;
             return;
         }
         if(entrada =='B'){
             cout<<"selecciono 5x5"<<endl;
-            //hacer funcion de mpp 5x5
             auto* board5 = new Board(5, 5);
             board5->generate_cell_distribution_((5*5)/2,board5->getMpp());
-            board5->print();
+            board5->getMpp()->print();
+
+            while(entrada != 'n') {
+                cout << "Next Generation (y/n)" << endl;
+                cin >> entrada;
+                if (entrada == 'y') {
+                    board5->getMpp()->print();
+                }
+            }
+                board5->getMpp()->print();
             return;
         }
         if(entrada =='C'){
             cout<<"selecciono 6x6"<<endl;
             auto* board6 = new Board(6, 6);
             board6->generate_cell_distribution_((6*6)/2,board6->getMpp());
-            board6->print();
+            board6->getMpp()->print();
+            while(entrada != 'n') {
+                cout << "Next Generation (y/n)" << endl;
+                cin >> entrada;
+                if (entrada == 'y') {
+                    board6->getMpp()->print();
+                }
+            }
+            board6->getMpp()->print();
             return;
         }
         if(entrada =='D'){
             cout<<"selecciono 10x10"<<endl;
             auto* board10 = new Board(10, 10);
             board10->generate_cell_distribution_((10*10)/2,board10->getMpp());
-            board10->print();
+            board10->getMpp()->print();
+            while(entrada != 'n') {
+                cout << "Next Generation (y/n)" << endl;
+                cin >> entrada;
+                if (entrada == 'y') {
+                    board10->getMpp()->print();
+                }
+            }
+            board10->getMpp()->print();
+
             return;
         }
         if(entrada == '0')
@@ -144,44 +177,16 @@ void submenu2(){
                 throw invalid_argument("El ancho debe ser un número entero entre 4 y 10.");
             }
         }
+
         cout << "El ancho se ha establecido en " << ancho << "." << endl;
 
         cout << "Ha elegido un tablero de " << largo << "x" << ancho << endl;
         auto* board = new Board(largo, ancho);
         board->getMpp()->print();
-        //board->print();
-        cout<<"Ingresar nueva celula? (s/n)"<<endl;
+        cout << "¿Desea agregar una celula? (s/n)" << endl;
         string newcell;
         cin>>newcell;
         while(newcell != "N" && newcell != "n"){    //mientras que la entrada sea distinta de n o N
-
-                try {
-
-                    cout << "Ingresar coordenadas de la celula agregada" << endl;
-
-                    int newx, newy;
-                    cout << "x: ";
-                    cin >> newx;
-                    cout << "y: ";
-                    cin >> newy;
-                    if (newx > largo || newy > ancho) {
-                        throw invalid_argument("Coordenadas fuera del tablero");
-                    }
-                    board->getMpp()->setValue(newx - 1, newy - 1, 1);
-                    //board->print();
-                } catch (const invalid_argument &e) {
-                    cout << "Error: " << e.what() << endl;
-                }
-                board->getMpp()->print();
-
-            cout<<"Ingresar nueva celula? (s/n)"<<endl;
-            cin>>newcell;
-            if(newcell == "n" || newcell == "N"){
-                board->getMpp()->print();
-                return;
-            }
-        }/*
-        if(newcell == "s") {
 
             try {
 
@@ -192,21 +197,33 @@ void submenu2(){
                 cin >> newx;
                 cout << "y: ";
                 cin >> newy;
-                if (newx > largo || newy > ancho) {
+                if (newx > largo - 1 || newy > ancho - 1) {
                     throw invalid_argument("Coordenadas fuera del tablero");
                 }
-                board->getMpp()->setValue(newx - 1, newy - 1, 1);
-                //board->print();
+                if(newx<0 || newy<0){
+                    throw invalid_argument("Coordenadas fuera del tablero");
+                }
+                if(board->getMpp()->getValue(newx-1,newy-1) == 1){
+                    throw invalid_argument("Ya existe una celula en esa posicion");
+                }
+                if(newx<largo || newy<ancho) {
+                    board->getMpp()->setValue(newx-1, newy-1, 1);
+                }
             } catch (const invalid_argument &e) {
                 cout << "Error: " << e.what() << endl;
             }
-            board->print();
-        }*/
-    } catch (const invalid_argument& e) {
+            board->getMpp()->print();
+            cout << "¿Desea agregar una celula? (s/n)" << endl;
+            cin>>newcell;
+        }
+
+        cout << "El tablero final es: " << endl;
+        board->getMpp()->print();
+    } catch (const invalid_argument &e) {
         cout << "Error: " << e.what() << endl;
-    } catch (...) {
-        cout << "Error desconocido." << endl;
     }
+
+
 }
 void opcion3() {
     submenu3();
