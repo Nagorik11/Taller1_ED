@@ -83,6 +83,9 @@ void submenu1(){
         if(entrada =='A'){
             cout<<"selecciono 4x4"<<endl;
             auto* board4 = new Board(4, 4);
+            board4->setId(board4->count_entries());
+            cout<<"id: "<<board4->getId()<<endl;
+
             board4->generate_cell_distribution_((4*4)/2,board4->getMpp());
             board4->getMpp()->print();
             while(entrada != 'n') {
@@ -90,15 +93,23 @@ void submenu1(){
                 cin >> entrada;
                 if (entrada == 'y') {
                     board4->getMpp()->print();
+                    board4->setStep(board4->getStep()+1);
+                    cout<<board4->getStep()<<endl;
+
                 }
             }
             board4->getMpp()->print();
+            if(entrada =='n'){
+                board4->store_record(*board4,board4->getId().to_string());
+            }
             return;
             return;
         }
         if(entrada =='B'){
             cout<<"selecciono 5x5"<<endl;
             auto* board5 = new Board(5, 5);
+            board5->setId(board5->count_entries());
+            cout<<"id: "<<board5->getId()<<endl;
             board5->generate_cell_distribution_((5*5)/2,board5->getMpp());
             board5->getMpp()->print();
 
@@ -110,11 +121,16 @@ void submenu1(){
                 }
             }
                 board5->getMpp()->print();
+            if(entrada =='n'){
+                board5->store_record(*board5,board5->getId().to_string());
+            }
             return;
         }
         if(entrada =='C'){
             cout<<"selecciono 6x6"<<endl;
             auto* board6 = new Board(6, 6);
+            board6->setId(board6->count_entries());
+            cout<<"id: "<<board6->getId()<<endl;
             board6->generate_cell_distribution_((6*6)/2,board6->getMpp());
             board6->getMpp()->print();
             while(entrada != 'n') {
@@ -125,11 +141,18 @@ void submenu1(){
                 }
             }
             board6->getMpp()->print();
+            if(entrada =='n'){
+                board6->store_record(*board6,board6->getId().to_string());
+            }
+
             return;
         }
         if(entrada =='D'){
             cout<<"selecciono 10x10"<<endl;
             auto* board10 = new Board(10, 10);
+            board10->setId(board10->count_entries());
+            cout<<"id: "<<board10->getId()<<endl;
+
             board10->generate_cell_distribution_((10*10)/2,board10->getMpp());
             board10->getMpp()->print();
             while(entrada != 'n') {
@@ -140,7 +163,9 @@ void submenu1(){
                 }
             }
             board10->getMpp()->print();
-
+            if(entrada =='n'){
+                board10->store_record(*board10,board10->getId().to_string());
+            }
             return;
         }
         if(entrada == '0')
@@ -229,22 +254,33 @@ void opcion3() {
     submenu3();
 }
 
-void submenu3(){
+void submenu3() {
     cout << "_______________________________________________" << endl;
     cout << "Partida Pre-fabricada." << endl;
     //generar tablero aleatorio
-    int filasRandom = rand()%10+3;
-    int columnasRandom = rand()%10+3;
-    cout <<" Se ha generado un tablero de "<<filasRandom<<"x"<<columnasRandom<<endl;
+    int filasRandom = rand() % 10 + 3;
+    int columnasRandom = rand() % 10 + 3;
+    cout << " Se ha generado un tablero de " << filasRandom << "x" << columnasRandom << endl;
     new Board(filasRandom, columnasRandom);
-    Board* board_r = new Board(filasRandom, columnasRandom);
-    board_r->generate_cell_distribution_(5,board_r->getMpp());
+    Board *board_r = new Board(filasRandom, columnasRandom);
+    board_r->generate_cell_distribution_(5, board_r->getMpp());
     board_r->print();
-    //board_r->update(1,1,1);
-    cout << "_______________________________________________" << endl;
+    char entrada;
+    cout << "Ingresar 'y' para avanzar a la siguiente generacion, 'n' para salir" << endl;
+    while (entrada != 'n') {
+        cout << "Next Generation (y/n)" << endl;
+        cin >> entrada;
+        if (entrada == 'y') {
+            board_r->getMpp()->print();
+        }
+    }
+    board_r->getMpp()->print();
 
+    return;
 }
 
+    //board_r->update(1,1,1);
+    //cout << "_______________________________________________" << endl;
 
 
 void opcion4() {

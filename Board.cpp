@@ -7,7 +7,7 @@
 Board::Board(int rows, int cols) {
         id = this->steps;
         mpp = new MPP(rows, cols);
-        steps = this->steps;
+        steps = 0;
         //steps=this->id;
     }
 
