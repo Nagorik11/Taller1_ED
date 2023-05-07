@@ -94,7 +94,7 @@ void submenu1(){
                 if (entrada == 'y') {
                     board4->getMpp()->print();
                     board4->setStep(board4->getStep()+1);
-                    cout<<board4->getStep()<<endl;
+                    cout<<"Steps: "<<board4->getStep()<<endl;
 
                 }
             }
@@ -118,6 +118,8 @@ void submenu1(){
                 cin >> entrada;
                 if (entrada == 'y') {
                     board5->getMpp()->print();
+                    board5->setStep(board5->getStep()+1);
+                    cout<<"Steps: "<<board5->getStep()<<endl;
                 }
             }
                 board5->getMpp()->print();
@@ -138,6 +140,8 @@ void submenu1(){
                 cin >> entrada;
                 if (entrada == 'y') {
                     board6->getMpp()->print();
+                    board6->setStep(board6->getStep()+1);
+                    cout<<"Steps: "<<board6->getStep()<<endl;
                 }
             }
             board6->getMpp()->print();
@@ -160,6 +164,8 @@ void submenu1(){
                 cin >> entrada;
                 if (entrada == 'y') {
                     board10->getMpp()->print();
+                    board10->setStep(board10->getStep()+1);
+                    cout<<"Steps: "<<board10->getStep()<<endl;
                 }
             }
             board10->getMpp()->print();
@@ -242,7 +248,7 @@ void submenu2(){
             cin>>newcell;
         }
 
-        cout << "El tablero final es: " << endl;
+        cout << "El tablero personalizado es: " << endl;
         board->getMpp()->print();
     } catch (const invalid_argument &e) {
         cout << "Error: " << e.what() << endl;
