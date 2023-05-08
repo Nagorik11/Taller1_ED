@@ -95,6 +95,7 @@ void submenu1(){
                     board4->getMpp()->print();
                     board4->setStep(board4->getStep()+1);
                     cout<<"Steps: "<<board4->getStep()<<endl;
+                    board4->getMpp()->search();
 
                 }
             }
@@ -250,6 +251,21 @@ void submenu2(){
 
         cout << "El tablero personalizado es: " << endl;
         board->getMpp()->print();
+        char entrada = 'y';
+        while(entrada != 'n') {
+            cout << "Next Generation (y/n)" << endl;
+            cin >> entrada;
+            if (entrada == 'y') {
+                board->getMpp()->print();
+                board->setStep(board->getStep()+1);
+                cout<<"Steps: "<<board->getStep()<<endl;
+            }
+        }
+        board->getMpp()->print();
+        if(entrada =='n'){
+            board->store_record(*board,board->getId().to_string());
+        }
+        return;
     } catch (const invalid_argument &e) {
         cout << "Error: " << e.what() << endl;
     }
@@ -263,25 +279,29 @@ void opcion3() {
 void submenu3() {
     cout << "_______________________________________________" << endl;
     cout << "Partida Pre-fabricada." << endl;
-    //generar tablero aleatorio
     int filasRandom = rand() % 10 + 3;
     int columnasRandom = rand() % 10 + 3;
     cout << " Se ha generado un tablero de " << filasRandom << "x" << columnasRandom << endl;
-    new Board(filasRandom, columnasRandom);
-    Board *board_r = new Board(filasRandom, columnasRandom);
+    auto board_r = new Board(filasRandom, columnasRandom);
     board_r->generate_cell_distribution_(5, board_r->getMpp());
-    board_r->print();
+    //board_r->print();
+    cout << "El tablero personalizado es: " << endl;
+    board_r->getMpp()->print();
     char entrada;
-    cout << "Ingresar 'y' para avanzar a la siguiente generacion, 'n' para salir" << endl;
-    while (entrada != 'n') {
+    cin >> entrada;
+    while(entrada != 'n') {
         cout << "Next Generation (y/n)" << endl;
         cin >> entrada;
         if (entrada == 'y') {
             board_r->getMpp()->print();
+            board_r->setStep(board_r->getStep()+1);
+            cout<<"Steps: "<<board_r->getStep()<<endl;
         }
     }
     board_r->getMpp()->print();
-
+    if(entrada =='n'){
+        board_r->store_record(*board_r,board_r->getId().to_string());
+    }
     return;
 }
 

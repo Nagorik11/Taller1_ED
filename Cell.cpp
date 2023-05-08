@@ -9,6 +9,7 @@ Cell::Cell() {
     isAlive = false;
     neighborCount = 0;
 }
+
 bool Cell::getIsAlive() const {
     return isAlive;
 }
@@ -29,16 +30,16 @@ int Cell::getRow() const {
     return row;
 }
 
-void Cell::setRow(int row) {
-    this->row = row;
+void Cell::setRow(int newrow) {
+    this->row = newrow;
 }
 
 int Cell::getCol() const {
     return col;
 }
 
-void Cell::setCol(int col) {
-    this->col = col;
+void Cell::setCol(int newcol) {
+    this->col = newcol;
 }
 
 void Cell::incrementNeighborCount() {
@@ -65,3 +66,14 @@ void Cell::setValue(int i) {
     }
 
 }
+
+Cell::Cell(int row, int col, bool isAlive, int neighborCount) {
+    this->row = row;
+    this->col = col;
+    this->isAlive = isAlive;
+    this->neighborCount = neighborCount;
+
+}
+
+Cell::Cell(int row, int col) : row(row), col(col) {}
+

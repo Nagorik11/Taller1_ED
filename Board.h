@@ -71,11 +71,14 @@ public:
      * @param id
      */
     void store_record(Board board,string id) const;
+
     /**
      * Cuenta la cantidad de entradas en el archivo
      * @return
      */
     static int count_entries();
+
+
     /**
      * Busca la matriz mas grande en el archivo
      */

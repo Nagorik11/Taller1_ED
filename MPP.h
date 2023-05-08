@@ -132,7 +132,7 @@ using namespace std;
 
         void addNode(int row, int col, int value);
 
-        int search(int row, int col) const;
+        int search() const;
 
         void setCell(int i, int i1, bool b);
 
@@ -141,6 +141,11 @@ using namespace std;
         int getDeathCells();
 
         int getDeathCells(int live_cells, int total_cells);
+
+        void search();
+
+        vector<int> getChangedPositions(string board) const;
+
     };
 
 #endif // MPP_H

@@ -16,6 +16,8 @@ public:
  */
     Cell();
 
+    Cell(int row, int col);
+
     /**
      * Constructor con parámetros
      * @param row
@@ -51,7 +53,7 @@ public:
        * Método para establecer la columna de la célula
        * @param col
        */
-    void setRow(int row);
+    void setRow(int newrow);
     /**
      * Método para obtener la columna de la célula
      * @return
@@ -61,7 +63,7 @@ public:
      * Método para establecer la columna de la célula
      * @param col
      */
-    void setCol(int col);
+    void setCol(int newcol);
 
     /**
      * Método para obtener el número de vecinos de la célula

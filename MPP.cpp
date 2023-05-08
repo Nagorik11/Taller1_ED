@@ -136,6 +136,7 @@ void MPP::setCell(int i, int i1, bool b) {
 
 }
 
+
 int MPP::getLiveCells() {
     int count = 0;
     for (int i = 0; i < values.size(); i++) {
@@ -153,3 +154,25 @@ int MPP::getDeathCells() {
 
         return celulasMuertas;
     }
+
+void MPP::search() {
+    vector<int> newValues;
+    for (int row = 0; row < rows; row++) {
+        for (int col = 0; col < cols; col++) {
+            int value = getValue(row, col);
+            //recorrer la matriz
+            //verificar el estado de cada celda e imprimirlo
+
+            cout<<getValue(row,col)<<endl;
+            if(value==1){
+                //setCell(row,col,true);
+                cout<<"viva en coordenadas"<<row<<col<<endl;
+
+
+            }else{
+                cout<<"muerta en coordenadas"<<row<<col<<endl;
+            }
+
+
+    }}}
+

@@ -5,7 +5,7 @@
 
 
 Board::Board(int rows, int cols) {
-        id = this->steps;
+        id = this->count_entries();
         mpp = new MPP(rows, cols);
         steps = 0;
         //steps=this->id;
@@ -104,9 +104,11 @@ MPP *Board::generate_cell_distribution_(int num_cells, MPP *mpp){
     int rows = mpp->getRows();
     int cols = mpp->getCols();
     int value = 1;
+
     for (int i = 0; i < num_cells; i++) {
         int row = rand() % rows;
         int col = rand() % cols;
+        //mpp->setCell(row, col, value);
         mpp->setValue(row, col, value);
     }
     return mpp;
